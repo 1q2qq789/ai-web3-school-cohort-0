@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI × Web3 基础概念卡片 · Week 1</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, sans-serif;
+    background: #0a0a0b;
+    color: #e4e4e7;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  .header {
+    padding: 48px 24px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #e4e4e7 0%, #a1a1aa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .header p {
+    color: #71717a;
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: 300;
+  }
+  .subtitle {
+    text-align: center;
+    color: #52525b;
+    font-size: 12px;
+    margin-bottom: 32px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: #141416;
+    border: 1px solid #1f1f23;
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .card:hover {
+    border-color: #3f3f46;
+    transform: translateY(-2px);
+  }
+  .card .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .tag-ai { background: #1c1917; color: #fb923c; border: 1px solid #292524; }
+  .tag-web3 { background: #0f172a; color: #60a5fa; border: 1px solid #1e293b; }
+  .tag-cross { background: #1a1625; color: #a78bfa; border: 1px solid #2e1e4a; }
+  .card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f4f4f5;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .card .en {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #52525b;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .card p {
+    font-size: 13px;
+    color: #a1a1aa;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .card .key-points {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #1f1f23;
+  }
+  .card .key-points li {
+    font-size: 12px;
+    color: #71717a;
+    list-style: none;
+    padding: 2px 0;
+  }
+  .card .key-points li::before {
+    content: "→ ";
+    color: #3f3f46;
+  }
+  .section-label {
+    max-width: 1100px;
+    margin: 24px auto 8px;
+    padding: 0 24px;
+    font-size: 13px;
+    color: #52525b;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+    .header { padding: 32px 16px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>AI × Web3 基础概念卡片</h1>
+  <p>Week 1 · 从 LLM 到链上执行</p>
+</div>
+<div class="subtitle">用 Agent 生成 · 放入 Repo 持续迭代</div>
+
+<div class="section-label">─  AI 基础 ─</div>
+<div class="grid">
+
+<div class="card">
+  <span class="tag tag-ai">LLM</span>
+  <h3>大语言模型</h3>
+  <span class="en">Large Language Model</span>
+  <p>通过互联网级文本训练的语言生成模型，核心能力是 next token prediction — 预测下一个最可能的 token 来生成文本。不是"理解"，而是"统计推断"。</p>
+  <div class="key-points">
+    <li>训练数据决定知识边界</li>
+    <li>temperature 控制输出随机性</li>
+    <li>max_tokens 限制输出长度</li>
+    <li>不擅长精确计算和实时信息</li>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag tag-ai">Prompt</span>
+  <h3>提示词工程</h3>
+  <span class="en">Prompt Engineering</span>
+  <p>通过设计输入文本引导 LLM 输出的技术。包括角色设定、上下文注入、few-shot 示例、chain-of-thought 等策略。</p>
+  <div class="key-points">
+    <li>好的 prompt 能大幅提升输出质量</li>
+    <li>system prompt + user message 双层结构</li>
+    <li>AI 输出必须验证，不盲信</li>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag tag-ai">Workflow</span>
+  <h3>工作流</h3>
+  <span class="en">Workflow</span>
+  <p>多步骤编排的任务流程，每个步骤调用 LLM 或工具，步骤之间传递状态。典型如：资料收集 → 分析 → 生成 → 验证。</p>
+  <div class="key-points">
+    <li>确定性的步骤执行</li>
+    <li>中间结果可查看、可干预</li>
+    <li>比纯 prompt 更可靠但缺乏自主性</li>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag tag-ai">Agent</span>
+  <h3>智能体</h3>
+  <span class="en">AI Agent</span>
+  <p>能感知环境、自主决策、调用工具的 AI 系统。核心组件：LLM（大脑）+ 工具（手） + 记忆（笔记本）+ 规划（日程表）。Hermes 就是 Agent 的典型实现。</p>
+  <div class="key-points">
+    <li>Agent ≠ Chatbot — 区别在自主执行</li>
+    <li>需要护栏（人工确认、权限限制）</li>
+    <li>Skills = Agent 的可复用经验</li>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag tag-ai">Tool Use</span>
+  <h3>工具调用</h3>
+  <span class="en">Function Calling</span>
+  <p>Agent 调用外部工具的能力：读文件、执行代码、搜索网页、调用 API。Hermes 的 MCP 协议让 Agent 可以接入 100+ 工具。</p>
+  <div class="key-points">
+    <li>工具扩展了 Agent 的能力边界</li>
+    <li>每次调用应有日志和结果验证</li>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag tag-ai">AI Coding</span>
+  <h3>AI 编程工具</h3>
+  <span class="en">AI Coding</span>
+  <p>Claude Code / Codex / Hermes 等让 AI 直接操作代码库的工具。价值：快速原型、代码补全、重构辅助。限制：上下文窗口有限、不能完全理解架构意图。</p>
+  <div class="key-points">
+    <li>生成 ≠ 理解——输出仍需人工 review</li>
+    <li>适合任务明确、边界清晰的代码</li>
+  </div>
+</div>
+
+</div>
+
+<div class="section-label">─  Web3 基础 ─</div>
+<div class="grid">
+
+<div class="card">
+  <span class="tag tag-web3">Account</span>
+  <h3>账户与地址</h3>
+  <span class="en">Account & Address</span>
+  <p>区块链的基本单位。EOA（外部账户）由私钥控制，地址是公钥的哈希。钱包不是"账号"，而是私钥管理器+安全责任入口。</p>
+  <div class="key-points">
+    <li>助记词 → 私钥 → 地址（单向推导）</li>
+    <li>地址不是匿名，是假名</li>
+    <li>Agent 不应直接接触私钥/助记词</li>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag tag-web3">Wallet</span>
+  <h3>钱包</h3>
+  <span class="en">Wallet</span>
+  <p>管理私钥、签名交易、连接 dApp 的工具。MetaMask 是最流行的浏览器钱包。涉及签名、授权、转账时必须人工确认。</p>
+  <div class="key-points">
+    <li>助记词和私钥不能泄露</li>
+    <li>签名 ≠ 登录——是在授权具体动作</li>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag tag-web3">Transaction</span>
+  <h3>交易与签名</h3>
+  <span class="en">Transaction & Signature</span>
+  <p>签名是"授权一个具体动作"，不是"点一下确认"。交易包含：from/to/value/data/nonce/gas limit。签完名发到链上由矿工/验证者打包。</p>
+  <div class="key-points">
+    <li>每笔交易有明确意图和成本</li>
+    <li>签名前务必确认全部字段</li>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag tag-web3">Gas</span>
+  <h3>Gas 与执行成本</h3>
+  <span class="en">Gas & Fees</span>
+  <p>链上执行的计算资源定价。Gas = gasUsed × gasPrice。L1 贵但安全，L2 便宜但依赖 L1 安全。失败交易也要付 Gas。</p>
+  <div class="key-points">
+    <li>Gas 不是手续费，是计算资源定价</li>
+    <li>L1/L2 在执行成本上差异巨大</li>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag tag-web3">Smart Contract</span>
+  <h3>智能合约</h3>
+  <span class="en">Smart Contract</span>
+  <p>部署在链上的可执行代码。与普通后端的差异：状态公开、执行公开、部分不可更改。部署在测试网学习和实验。</p>
+  <div class="key-points">
+    <li>状态公开执行公开</li>
+    <li>升级权限可检查</li>
+    <li>先在测试网练手</li>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag tag-web3">Testnet</span>
+  <h3>测试网与区块浏览器</h3>
+  <span class="en">Testnet & Block Explorer</span>
+  <p>Sepolia / Goerli 等测试网用测试币免费交互。区块浏览器（Etherscan）查看交易哈希、状态、Gas、区块高度，形成完整反馈链。</p>
+  <div class="key-points">
+    <li>学习实验先在测试网完成</li>
+    <li>区块浏览器是链上行为的"日志"</li>
+  </div>
+</div>
+
+</div>
+
+<div class="section-label">─  AI × Web3 交叉 ─</div>
+<div class="grid">
+
+<div class="card">
+  <span class="tag tag-cross">交叉实验</span>
+  <h3>AI → 链上执行链路</h3>
+  <span class="en">AI to On-chain Workflow</span>
+  <p>把 AI 输出与链上执行串起来：AI 生成合约交互脚本 → 人工复核 → 钱包确认签名 → 链上执行 → 浏览器验证。</p>
+  <div class="key-points">
+    <li>每个步骤必须有明确的边界</li>
+    <li>签名/转账/写入必须人工确认</li>
+    <li>失败恢复和日志记录不可少</li>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag tag-cross">Agent x Wallet</span>
+  <h3>Agent 与钱包安全</h3>
+  <span class="en">Agent-Wallet Security</span>
+  <p>AI Agent 不应直接接触私钥/助记词。Account Abstraction（ERC-4337）让 Agent 在有限权限下执行操作，比如 Session Key + 每日限额。</p>
+  <div class="key-points">
+    <li>私钥必须 Agent-proof</li>
+    <li>AA 是关键基础设施</li>
+  </div>
+</div>
+
+<div class="card">
+  <span class="tag tag-cross">Learning Agent</span>
+  <h3>个人学习 Agent</h3>
+  <span class="en">Learning Agent Setup</span>
+  <p>用 Claude Code / Codex / Hermes 把课程学习、资料阅读、实验记录、repo 维护串成可持续的工作流。你正在用 Hermes 跑这套流程。</p>
+  <div class="key-points">
+    <li>GitHub repo = 公开 proof-of-work</li>
+    <li>每天打卡 + daily note</li>
+    <li>Feedback 沉淀到 handbook-feedback/</li>
+  </div>
+</div>
+
+</div>
+
+<div class="header" style="padding-top: 24px;">
+  <p style="font-size: 12px; color: #52525b;">
+    AI × Web3 School · Week 1 · Generated by Hermes Agent<br>
+    Repo: github.com/1q2qq789/ai-web3-school-cohort-0
+  </p>
+</div>
+
+</body>
+</html>

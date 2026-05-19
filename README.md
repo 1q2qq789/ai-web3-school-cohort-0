@@ -12,14 +12,23 @@
 ## 目录
 
 ```
-daily/           每日学习笔记
-tasks/           任务记录
-experiments/     实验与代码
+daily/              每日学习笔记
+tasks/              任务记录
+experiments/        实验与代码（含概念卡片、Quiz 等 AI 产物）
 handbook-feedback/  Handbook 反馈
-hackathon/       Hackathon 项目
-submissions/     打卡与提交记录
-templates/       笔记模板
+hackathon/          Hackathon 项目
+submissions/        打卡与提交记录
+templates/          笔记模板
 ```
+
+## Week 1 学习产物
+
+| 文件名 | 学分 | 说明 |
+|--------|------|------|
+| [experiments/ai-web3-concept-cards.html](./experiments/ai-web3-concept-cards.html) | +10 | AI 基础概念卡片 — LLM / Agent / Workflow / Wallet / Gas / Contract |
+| [experiments/week1-quiz.html](./experiments/week1-quiz.html) | +30 | 可交互 Quiz — 10 道题测试 Week 1 概念理解 |
+
+> 以上产物由 Hermes Agent 生成，人工复核后放入 repo。
 
 ## ⚠️ 隐私提醒
 
